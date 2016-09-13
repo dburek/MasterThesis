@@ -1,0 +1,38 @@
+\renewcommand{\figurename}{Rys.}
+
+\chapter{Podsumowanie}
+\label{cha:podsumowanie}
+
+Po gruntownym zapoznaniu się z~wybranymi zagadnieniami biofizyki i biochemii dotyczącymi właściwości optycznych zbiorów komórek organizmu, dokonano 
+analizy możliwości wykorzystania interakcji światło~-~tkanka w~detekcji parametrów określających stan układu krążeniowo~-~oddechowego. 
+Przegląd zjawisk fizycznych zachodzących wewnątrz oraz na granicach struktur tkankowych wraz z~wiedzą na temat funkcji oraz roli krwioobiegu 
+i~układu oddechowego posłużyły jako podstawa do analizy wykorzystania praw optyki w~diagnostyce medycznej. Idea oraz metodyka przeprowadzania 
+pomiarów bazujących na transluminacji promieniowaniem w~postaci światła, pozwoliła na wyznaczenie zależności pomiędzy cechami uzyskanego 
+sygnału a~poszukiwanymi wskaźnikami częstości akcji serca i~saturacji. 
+
+Wynikiem pracy jest przenośny układ elektroniczny umożliwiający pomiar wybranych parametrów krwi takich, jak: tętno i saturacja. W~ramach pracy 
+wykonany został kompletny system pomiarowy złożony z~analogowego toru przetwarzania sygnału $PPG$ oraz cyfrowego modułu kontrolno~-~sterującego 
+w~postaci mikrokontrolera STM32. Całość aparatu pomiarowego została zrealizowana w formie obwodu drukowanego PCBi, gwarantującego integralność 
+i~niezawodność pracy urządzenia. Kontrolę nad procesem pomiarowym sprawuje aplikacja mikrokontrolera napisana w~języku C przy wsparciu systemu 
+operacyjnego czasu rzeczywistego FreeRTOS. Zastosowanie systemu operacyjnego znacznie ułatwiło proces tworzenia i~ewaluacji kodu źródłowego aplikacji, 
+umożliwiając równocześnie łatwe wprowadzenie nowych funkcjonalności. Pulsoksymetr zasilany jest z~zewnętrznego źródła napięcia 5~V w~postaci zasilacza oraz
+posiada możliwość przesyłania danych do nadrzędnego komputera PC interfejsem USB. Wizualizacja wyników pomiaru wraz z~przebiegiem krzywej
+pletyzmograficznej zrealizowana została w formie prostej aplikacji w środowisku LabView.
+
+Końcowa faza testowania i~kalibracji urządzenia wykazała dużą zbieżność mierzonych wartości z~wynikami komercyjnych urządzeń szpitalnych wykorzystywanych
+podczas testów porównawczych. Testy pomiaru tętna oraz stopnia wysycenia krwi tętniczej tlenem wykonane zostały na grupie zdrowych osób 
+w zróżnicowanych przedziałach wiekowych. Ostatecznie stwierdzono poprawność funkcjonowania aparatu pomiarowego przy założeniu spełnienia
+określonych warunków przeprowadzanego pomiaru. 
+
+\subsubsection{Dalsze kierunki rozwoju}
+\label{subsubsec:Rozwoj}
+
+Podstawowy zakres funkcji zaprojektowanego pulsoksymetru obejmuje pomiar wartości saturacji oraz tętna wraz z~wizualizacją wyników. 
+W~trosce o~dalszą ewaluację projektu układ wyposażono w złącze wyświetlacza LCD $3.2"$ SSD1298 z~panelem dotykowym i~złączem karty SD. W~celu zapewnienia 
+pełnej mobilności urządzenia warto zaimplementować tryb zasilania bateryjnego. Współczesne technologie miniaturyzacji elementów i~układów 
+elektronicznych umożliwiają zmniejszenie wymiarów aparatu pomiarowego do rozmiarów porównywalnych z~wymiarami sondy napalcowej. Miniaturyzacja 
+pulsoksymetru oraz wyposażenie układu w możliwość transmisji bezprzewodowej pozwolą na włączenie urządzenia do sieci zdalnego monitorowania 
+pacjenta WBAN (ang.~Wireless Body Area Network). Warunkiem koniecznym jest opracowanie systemu eliminacji zakłóceń i artefaktów będących skutkiem
+ruchów pacjenta.
+
+

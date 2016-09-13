@@ -1,0 +1,132 @@
+\documentclass{aghdpl}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+
+% dodatkowe pakiety
+%\usepackage{apacite}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{graphics}
+\usepackage[hang, font={large, sl}, labelfont={large, sl}]{caption}
+\usepackage{amsthm}
+\usepackage{multirow} 
+\usepackage{tocloft}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{pdfpages}
+
+% \setcounter{secnumdepth}{0}
+\setcounter{chapter}{0}
+\renewcommand\cfttoctitlefont{\Large\bfseries}
+\renewcommand\cftchapfont{\Large\bfseries}
+\renewcommand\cftsecfont{\Large}
+\renewcommand\cftsubsecfont{\large}
+
+\renewcommand\cftchappagefont{\Large\bfseries}
+\renewcommand\cftsecpagefont{\Large}
+\renewcommand\cftsubsecpagefont{\large}
+
+\renewcommand\cftchapafterpnum{\par\addvspace{11pt}}
+\renewcommand\cftsecafterpnum{\par\addvspace{8pt}}
+\renewcommand\cftsubsecafterpnum{\par\addvspace{6pt}}
+
+\renewcommand\cftloftitlefont{\LARGE\bfseries}
+\renewcommand\cftfigfont{\large}
+\renewcommand\cftfigpagefont{\large}
+\renewcommand\cftfigafterpnum{\par\addvspace{0pt}}
+
+\setlength{\cftfignumwidth}{3em}
+
+\lstloadlanguages{TeX}
+
+\lstset{
+  literate={ą}{{\k{a}}}1
+           {ć}{{\'c}}1
+           {ę}{{\k{e}}}1
+           {ó}{{\'o}}1
+           {ń}{{\'n}}1
+           {ł}{{\l{}}}1
+           {ś}{{\'s}}1
+           {ź}{{\'z}}1
+           {ż}{{\.z}}1
+           {Ą}{{\k{A}}}1
+           {Ć}{{\'C}}1
+           {Ę}{{\k{E}}}1
+           {Ó}{{\'O}}1
+           {Ń}{{\'N}}1
+           {Ł}{{\L{}}}1
+           {Ś}{{\'S}}1
+           {Ź}{{\'Z}}1
+           {Ż}{{\.Z}}1
+}
+
+%---------------------------------------------------------------------------
+
+\author{Damian Burek}
+\shortauthor{D. Burek}
+
+\titlePL{Przenośny układ do nieinwazyjnego pomiaru wysycenia krwi tętniczej i częstości akcji serca}
+\titleEN{A portable device for noninvasive measurement of oxygen saturation in blood and heart rate}
+
+\shorttitlePL{} % skrócona wersja tytułu jeśli jest bardzo długi
+\shorttitleEN{}
+
+\thesistypePL{Praca magisterska}
+\thesistypeEN{Master of Science Thesis}
+
+\supervisorPL{dr inż. Wojciech Maziarz}
+\supervisorEN{Wojciech Maziarz Ph.D.}
+
+\date{2013}
+
+\departmentPL{Katedra Elektroniki}
+\departmentEN{Department of Electronics}
+
+\facultyPL{Wydział Informatyki, Elektroniki i Telekomunikacji}
+\facultyEN{Faculty of Computer Science, Electronics and Telecommunications}
+
+\acknowledgements{}
+
+\setlength{\cftsecnumwidth}{10mm}
+
+%---------------------------------------------------------------------------
+
+\begin{document}
+
+\titlepages
+
+\tableofcontents
+
+\clearpage
+\linespread{2}
+
+
+\include{rozdzial1}
+\include{rozdzial2}
+\include{rozdzial3}
+\include{rozdzial4}
+\include{rozdzial5}
+\include{Podsumowanie}
+\include{dodatekA}
+\include{dodatekB}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliografia}
+
+\begingroup
+\large
+\bibliographystyle{ieeetr}
+\bibliography{bibliografia}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Spis rysunków}
+\listoffigures
+\endgroup
+\renewcommand{\figurename}{Fig.}
+
+%\addcontentsline{toc}{chapter}{Spis tabel}
+
+\end{document}

@@ -1,0 +1,918 @@
+cscope 15 $HOME/arm/sample_project               0000005640
+	@lib/MyLib/inc/STM32_CoreInit.h
+
+9 #i‚de‡
+STM32_INIT_H_
+
+
+10 
+	#STM32_INIT_H_
+
+
+	)
+
+15 
+STM32_C‹eInô
+();
+
+20 
+STM32_ClockInô
+();
+
+	@lib/MyLib/inc/STM32_Delay.h
+
+9 #i‚de‡
+STM32_DELAY_H_
+
+
+10 
+	#STM32_DELAY_H_
+
+
+	)
+
+12 
+Dñay
+();
+
+	@lib/MyLib/inc/STM32_PeriphInit.h
+
+8 #i‚de‡
+STM32_PERIPHINIT_H_
+
+
+9 
+	#STM32_PERIPHINIT_H_
+
+
+	)
+
+11 
+	~"°m32f10x_rcc.h
+"
+
+12 
+	~"°m32f10x_gpio.h
+"
+
+13 
+	~"°m32f10x_ußπ.h
+"
+
+14 
+	~"°m32f10x_adc.h
+"
+
+18 
+STM32_PîùhInô
+();
+
+24 
+STM32_GPIOInô
+();
+
+30 
+STM32_USARTInô
+();
+
+36 
+STM32_ADCInô
+();
+
+	@lib/MyLib/src/STM32_CoreInit.c
+
+8 
+	~"STM32_C‹eInô.h
+"
+
+9 
+	~"°m32f10x_rcc.h
+"
+
+16 
+	$STM32_C‹eInô
+(){
+
+19 
+	`STM32_ClockInô
+();
+
+20 
+	}
+}
+
+30 
+	$STM32_ClockInô
+(){
+
+33 
+	`RCC_DeInô
+();
+
+36 
+	`RCC_HSEC⁄fig
+(
+RCC_HSE_ON
+);
+
+39 if(
+	`RCC_WaôF‹HSESèπUp
+()==
+SUCCESS
+){
+
+42 
+	`RCC_PLLC⁄fig
+(
+RCC_PLLSour˚_PREDIV1
+, 
+RCC_PLLMul_4
+);
+
+44 
+	`RCC_PREDIV1C⁄fig
+(
+RCC_PREDIV1_Sour˚_HSE
+, 
+RCC_PREDIV1_Div2
+);
+
+46 
+	`RCC_PLLCmd
+(
+ENABLE
+);
+
+49 
+	`RCC_GëFœgSètus
+(
+RCC_FLAG_PLLRDY
+)==
+RESET
+);
+
+52 
+	`RCC_HCLKC⁄fig
+(
+RCC_SYSCLK_Div2
+);
+
+54 
+	`RCC_PCLK1C⁄fig
+(
+RCC_HCLK_Div2
+);
+
+56 
+	`RCC_PCLK2C⁄fig
+(
+RCC_HCLK_Div1
+);
+
+59 
+	`RCC_SYSCLKC⁄fig
+(
+RCC_SYSCLKSour˚_PLLCLK
+);
+
+62 
+	`RCC_GëSYSCLKSour˚
+()!=0x08);
+
+72 
+	}
+}
+
+	@lib/MyLib/src/STM32_Delay.c
+
+9 
+	~"STM32_Dñay.h
+"
+
+11 
+	$Dñay
+(){
+
+12 
+˙t
+=0;
+
+13 
+˙t
+=0;cnt<0xFFF;cnt++);
+
+14 
+	}
+}
+
+	@lib/MyLib/src/STM32_PeriphInit.c
+
+9 
+	~"STM32_PîùhInô.h
+"
+
+17 
+	$STM32_PîùhInô
+(){
+
+20 
+	`STM32_GPIOInô
+();
+
+22 
+	`STM32_USARTInô
+();
+
+24 
+	`STM32_ADCInô
+();
+
+25 
+	}
+}
+
+33 
+	$STM32_GPIOInô
+(){
+
+36 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_GPIOA
+|
+RCC_APB2Pîùh_GPIOC
+|
+RCC_APB2Pîùh_GPIOD
+|
+RCC_APB2Pîùh_GPIOB
+, 
+ENABLE
+);
+
+39 
+GPIO_InôTy≥Def
+ 
+GPIO_InôSåu˘uª
+;
+
+41 
+GPIO_InôSåu˘uª
+.
+GPIO_Pö
+=
+GPIO_Pö_AŒ
+;
+
+42 
+GPIO_InôSåu˘uª
+.
+GPIO_S≥ed
+=
+GPIO_S≥ed_50MHz
+;
+
+43 
+GPIO_InôSåu˘uª
+.
+GPIO_Mode
+=
+GPIO_Mode_Out_PP
+;
+
+46 
+	`GPIO_Inô
+(
+GPIOD
+, &
+GPIO_InôSåu˘uª
+);
+
+47 
+	}
+}
+
+58 
+	$STM32_USARTInô
+(){
+
+61 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_USART1
+, 
+ENABLE
+);
+
+64 
+USART_InôTy≥Def
+ 
+USART_InôSåu˘uª
+;
+
+66 
+USART_InôSåu˘uª
+.
+USART_BaudR©e
+=9600;
+
+67 
+USART_InôSåu˘uª
+.
+USART_W‹dLígth
+=
+USART_W‹dLígth_9b
+;
+
+68 
+USART_InôSåu˘uª
+.
+USART_St›Bôs
+=
+USART_St›Bôs_1
+;
+
+69 
+USART_InôSåu˘uª
+.
+USART_P¨ôy
+=
+USART_P¨ôy_Eví
+;
+
+70 
+USART_InôSåu˘uª
+.
+USART_Mode
+=
+USART_Mode_Tx
+;
+
+71 
+USART_InôSåu˘uª
+.
+USART_H¨dw¨eFlowC⁄åﬁ
+=
+USART_H¨dw¨eFlowC⁄åﬁ_N⁄e
+;
+
+74 
+	`USART_Inô
+(
+USART1
+,&
+USART_InôSåu˘uª
+);
+
+79 
+GPIO_InôTy≥Def
+ 
+GPIO_InôSåu˘uª
+;
+
+81 
+GPIO_InôSåu˘uª
+.
+GPIO_Pö
+=
+GPIO_Pö_9
+;
+
+82 
+GPIO_InôSåu˘uª
+.
+GPIO_S≥ed
+=
+GPIO_S≥ed_50MHz
+;
+
+83 
+GPIO_InôSåu˘uª
+.
+GPIO_Mode
+=
+GPIO_Mode_AF_PP
+;
+
+86 
+	`GPIO_Inô
+(
+GPIOA
+, &
+GPIO_InôSåu˘uª
+);
+
+89 
+	`USART_Cmd
+(
+USART1
+, 
+ENABLE
+);
+
+90 
+	}
+}
+
+98 
+	$STM32_ADCInô
+(){
+
+101 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_ADC1
+,
+ENABLE
+);
+
+104 
+	`RCC_ADCCLKC⁄fig
+(
+RCC_PCLK2_Div8
+);
+
+107 
+ADC_InôTy≥Def
+ 
+ADC_InôSåu˘uª
+;
+
+109 
+ADC_InôSåu˘uª
+.
+ADC_Mode
+=
+ADC_Mode_Indïídít
+;
+
+110 
+ADC_InôSåu˘uª
+.
+ADC_SˇnC⁄vMode
+=
+DISABLE
+;
+
+111 
+ADC_InôSåu˘uª
+.
+ADC_C⁄töuousC⁄vMode
+=
+DISABLE
+;
+
+112 
+ADC_InôSåu˘uª
+.
+ADC_Exã∫ÆTrigC⁄v
+=
+ADC_Exã∫ÆTrigC⁄v_N⁄e
+;
+
+113 
+ADC_InôSåu˘uª
+.
+ADC_D©aAlign
+=
+ADC_D©aAlign_Right
+;
+
+114 
+ADC_InôSåu˘uª
+.
+ADC_NbrOfCh™√l
+=1;
+
+118 
+	`ADC_Inô
+(
+ADC1
+,&
+ADC_InôSåu˘uª
+);
+
+121 
+	`ADC_ReguœrCh™√lC⁄fig
+(
+ADC1
+,
+ADC_Ch™√l_8
+,1,
+ADC_Sam∂eTime_1Cy˛es5
+);
+
+124 
+GPIO_InôTy≥Def
+ 
+GPIO_InôSåu˘uª
+;
+
+126 
+GPIO_InôSåu˘uª
+.
+GPIO_Pö
+=
+GPIO_Pö_0
+;
+
+127 
+GPIO_InôSåu˘uª
+.
+GPIO_S≥ed
+=
+GPIO_S≥ed_10MHz
+;
+
+128 
+GPIO_InôSåu˘uª
+.
+GPIO_Mode
+=
+GPIO_Mode_AIN
+;
+
+130 
+	`GPIO_Inô
+(
+GPIOB
+,&
+GPIO_InôSåu˘uª
+);
+
+133 
+	`ADC_Cmd
+(
+ADC1
+,
+ENABLE
+);
+
+134 
+	}
+}
+
+	@user/main.c
+
+8 
+	~"°m32f10x.h
+"
+
+9 
+	~"STM32_C‹eInô.h
+"
+
+10 
+	~"STM32_PîùhInô.h
+"
+
+11 
+	~"STM32_Dñay.h
+"
+
+14 
+	$maö
+(){
+
+16 
+uöt16_t
+ 
+d©a
+;
+
+19 
+	`STM32_C‹eInô
+();
+
+20 
+	`STM32_PîùhInô
+();
+
+26 
+	`GPIO_Wrôe
+(
+GPIOA
+, 0xFFFF);
+
+27 
+	`GPIO_Wrôe
+(
+GPIOB
+, 0xFFFF);
+
+28 
+	`GPIO_Wrôe
+(
+GPIOC
+, 0xFFFF);
+
+29 
+	`GPIO_Wrôe
+(
+GPIOD
+, 0xFFFF);
+
+32 
+	`ADC_So·w¨eSèπC⁄vCmd
+(
+ADC1
+, 
+ENABLE
+);
+
+35 
+	`ADC_GëFœgSètus
+(
+ADC1
+, 
+ADC_FLAG_EOC
+Ë=
+RESET
+);
+
+38 
+d©a
+=
+	`ADC_GëC⁄vîsi⁄VÆue
+(
+ADC1
+);
+
+41 
+	`USART_GëFœgSètus
+(
+USART1
+,
+USART_FLAG_TXE
+)==
+RESET
+);
+
+44 
+	`USART_SídD©a
+(
+USART1
+,(
+uöt8_t
+)(
+d©a
+&0x00FF));
+
+45 
+	`Dñay
+();
+
+47 
+	`USART_GëFœgSètus
+(
+USART1
+,
+USART_FLAG_TXE
+)==
+RESET
+);
+
+48 
+	`Dñay
+();
+
+50 
+	`USART_SídD©a
+(
+USART1
+,(
+uöt8_t
+)((
+d©a
+>>8)&0x000F));
+
+52 
+	}
+}
+
+	@user/stm32f10x_conf.h
+
+23 #i‚de‡
+__STM32F10x_CONF_H
+
+
+24 
+	#__STM32F10x_CONF_H
+
+
+	)
+
+39 
+	~"°m32f10x_gpio.h
+"
+
+42 
+	~"°m32f10x_pwr.h
+"
+
+43 
+	~"°m32f10x_rcc.h
+"
+
+48 
+	~"°m32f10x_ußπ.h
+"
+
+50 
+	~"misc.h
+"
+
+59 #ifde‡ 
+USE_FULL_ASSERT
+
+
+68 
+	#as£π_∑øm
+(
+ex¥
+Ë(”x¥Ë? ()0 : 
+	`as£π_Áûed
+((
+uöt8_t
+ *)
+__FILE__
+, 
+__LINE__
+))
+
+	)
+
+70 
+as£π_Áûed
+(
+uöt8_t
+* 
+fûe
+, 
+uöt32_t
+ 
+löe
+);
+
+72 
+	#as£π_∑øm
+(
+ex¥
+Ë(()0)
+
+	)
+
+	@user/stm32f10x_it.c
+
+25 
+	~"°m32f10x_ô.h
+"
+
+47 
+	$NMI_H™dÀr
+()
+
+49 
+	}
+}
+
+56 
+	$H¨dFau…_H™dÀr
+()
+
+62 
+	}
+}
+
+69 
+	$MemM™age_H™dÀr
+()
+
+75 
+	}
+}
+
+82 
+	$BusFau…_H™dÀr
+()
+
+88 
+	}
+}
+
+95 
+	$UßgeFau…_H™dÀr
+()
+
+101 
+	}
+}
+
+108 
+	$SVC_H™dÀr
+()
+
+110 
+	}
+}
+
+117 
+	$DebugM⁄_H™dÀr
+()
+
+119 
+	}
+}
+
+126 
+	$PídSV_H™dÀr
+()
+
+128 
+	}
+}
+
+135 
+	$SysTick_H™dÀr
+()
+
+137 
+	}
+}
+
+	@user/stm32f10x_it.h
+
+23 #i‚de‡
+__STM32F10x_IT_H
+
+
+24 
+	#__STM32F10x_IT_H
+
+
+	)
+
+26 #ifde‡
+__˝lu•lus
+
+
+31 
+	~"°m32f10x.h
+"
+
+38 
+NMI_H™dÀr
+();
+
+39 
+H¨dFau…_H™dÀr
+();
+
+40 
+MemM™age_H™dÀr
+();
+
+41 
+BusFau…_H™dÀr
+();
+
+42 
+UßgeFau…_H™dÀr
+();
+
+43 
+SVC_H™dÀr
+();
+
+44 
+DebugM⁄_H™dÀr
+();
+
+45 
+PídSV_H™dÀr
+();
+
+46 
+SysTick_H™dÀr
+();
+
+48 #ifde‡
+__˝lu•lus
+
+
+	@
+1
+.
+1
+/usr/include
+10
+258
+lib/MyLib/inc/STM32_CoreInit.h
+lib/MyLib/inc/STM32_Delay.h
+lib/MyLib/inc/STM32_PeriphInit.h
+lib/MyLib/src/STM32_CoreInit.c
+lib/MyLib/src/STM32_Delay.c
+lib/MyLib/src/STM32_PeriphInit.c
+user/main.c
+user/stm32f10x_conf.h
+user/stm32f10x_it.c
+user/stm32f10x_it.h
